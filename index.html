@@ -11,19 +11,17 @@
         Click Me
     </button>
     <script>
-        let button = document.getElementById('dataButton');
-        let API_URL = 'https://my-json-server.typicode.com/codingfeverforever/mockServer/db';
-        function getData(){
+        (function getData(){
+            let API_URL = 'https://my-json-server.typicode.com/codingfeverforever/mockServer/db';
             let  xmlHttp = new XMLHttpRequest();
             xmlHttp.open( "GET", API_URL, false ); // false for synchronous request
             xmlHttp.send( null );
             let data =  xmlHttp.responseText;
             console.log(data);
-            let createdDiv  = document.createElement('div');
+            let createdDiv  = document.createElement('pre');
             document.getElementsByTagName('body')[0].appendChild(createdDiv);
             createdDiv.innerHTML = data;
-        }
-        button.addEventListener('click',getData);
+        })();
     </script>
 </body>
 </html>
